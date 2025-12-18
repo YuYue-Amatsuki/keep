@@ -49,6 +49,7 @@ function storeToIndexedDB(portrait_osrc, bgimg_osrc) {
         bs_range_max: bs_range_max,
         savePic_width: savePic_width,
         auto_change: auto_change,
+        amap_key: amap_key,
         // ...其他要保存的属性...
     };
     storeData(data);

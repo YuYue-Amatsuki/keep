@@ -1,6 +1,6 @@
 //init.js
 var auto_draw ;
-var miles, speeds, username, keep_title, date_year, date_month, date_day, time_hour, time_min, temperature, humidity, savePic_width;
+var miles, speeds, username, keep_title, date_year, date_month, date_day, time_hour, time_min, temperature, humidity, savePic_width, amap_key;
 
 var km_min, km_max, speed_min, speed_max;
 
@@ -64,6 +64,7 @@ function setData() {
     bs_range_max = parseInt(document.getElementById("inpt_bs_range_max").value);
     savePic_width = parseInt(document.getElementById("inpt_savePic_width").value);
     auto_draw = document.getElementById("auto_draw_checkbox").checked;
+    amap_key = document.getElementById("inpt_amap_key").value;
     render();
 }
 
@@ -109,6 +110,7 @@ function initInputData() {
     document.getElementById("inpt_savePic_width").value = savePic_width;
     document.getElementById("gui-img").src = gui_img_src;
     document.getElementById("auto_draw_checkbox").checked=auto_change;
+    document.getElementById("inpt_amap_key").value = amap_key || '';
 
     let bgimg_select = document.getElementById("default_bgImgSelect");
     for (let i = 0; i < bgimg_select.options.length; i++) {

@@ -154,6 +154,15 @@
                                     class="ApiExplanation">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp将通过Api获取实时温湿度</span>
                             </div>
                         </li>
+                        <li>
+                            <label data-text="√">√高德地图API Key：</label>
+                            <input id="inpt_amap_key" onchange="setData()" type="text" style="width: 300px;" placeholder="输入你的高德地图API Key">
+                            <button onclick="updateWeatherFromAPI()" class="init-btn">更新天气</button>
+                            <br>
+                            <div class="align-center">
+                                <span class="ApiExplanation">请按照 <a href="https://amap.apifox.cn/doc-7445538" target="_blank">高德地图 API key 获取教程</a> 选择天气服务，这个很快很方便，注册个账号就可以的。但是填写之后要记得点击页面最上方"永存带√信息"保存。留空则需手动输入天气。</span>
+                            </div>
+                        </li>
                     </div>
                 </div>
 
