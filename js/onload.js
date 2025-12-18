@@ -23,6 +23,7 @@ window.onload = async function () {
     speed_min = 4.3;
     speed_max = 5.2;
     auto_change = true;
+    amap_key = '';
 
     document.getElementById('min_miles').value = km_min;
     document.getElementById('max_miles').value = km_max;
@@ -82,6 +83,7 @@ window.onload = async function () {
                 bs_range_max = data.bs_range_max || bs_range_max;
                 savePic_width = data.savePic_width || savePic_width;
                 auto_change = data.auto_change;
+                amap_key = data.amap_key || '';
                 // updateSelectedOption(); //预设图片
 
 
@@ -118,6 +120,7 @@ window.onload = async function () {
 
                 document.getElementById("inpt_colorchange_checkbox").checked = bs;
                 document.getElementById("auto_draw_checkbox").checked = auto_change;
+                document.getElementById("inpt_amap_key").value = amap_key;
 
                 document.getElementById("inpt_bs_prob").value = bs_prob;
                 document.getElementById("inpt_bs_range_min").value = bs_range_min;
@@ -125,6 +128,13 @@ window.onload = async function () {
                 document.getElementById("inpt_savePic_width").value = savePic_width;
 
                 render()
+                
+                // 在数据加载完成后尝试获取天气数据
+                if (amap_key && amap_key.trim() !== '') {
+                    updateWeatherFromAPI().catch(err => {
+                        console.log("自动获取天气失败:", err.message);
+                    });
+                }
             }
         });
 
@@ -188,25 +198,6 @@ window.onload = async function () {
     render();
     dbReady()
 
-    // 尝试获取天气数据
-    try {
-        const weatherData = await loadAMapWeather();
-        temperature = parseInt(weatherData.temperature);
-        humidity = parseInt(weatherData.humidity);
-        // console.log("Weather data:", weatherData.temperature);
-
-        document.getElementById("inpt_temperature").value = temperature;
-        document.getElementById("inpt_humidity").value = humidity;
-
-        document.getElementById("temperature").innerHTML = String(temperature) + "℃";
-        document.getElementById("humidity").innerHTML = String(humidity) + "%";
-
-    } catch (err) {
-        temperature = 10; // 默认值
-        humidity = 42;    // 默认值
-        console.error("Error occurred when fetching weather:", err);
-        alert('温度、湿度获取失败，请手动输入');
-    }
     // Call the drawMine function
     let url = 'https://tool.joytion.cn/generate-track';
 
