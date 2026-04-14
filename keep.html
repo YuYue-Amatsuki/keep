@@ -78,6 +78,13 @@
                 <hr />
                 <div class="background-green">
                     <li>
+                        <label data-text="√">√界面模板：</label>
+                        <select onchange="templateSelect_onChange()" id="template_select">
+                            <option value="images/1.png" selected>模板1</option>
+                            <option value="images/2.png">模板2</option>
+                        </select>
+                    </li>
+                    <li>
                         <label data-text="√">√用户名：</label>
                         <input id="inpt_username" onchange="setData()" type="text" class="username-inp"></br>
                     </li>
@@ -172,9 +179,10 @@
                     <li>
                         <label data-text="√">√背景：</label>
                         <select onchange="default_bgImgSelect_onChange()" id="default_bgImgSelect">
-                            <option value="guiji_Select_1">南体育场</option>
+                            <option value="nonglin">农林</option>
+                            <!-- <option value="guiji_Select_1">南体育场</option>
                             <option value="guiji_Select_2">军工操场</option>
-                            <option value="guiji_Select_3">北体育场</option>
+                            <option value="guiji_Select_3">北体育场</option> */ -->
                         </select>
                     </li>
                     <li>
@@ -194,13 +202,17 @@
                             <option value="['images/bg1_4.png', 'images/bg1_empty2.png']">预设4</option>
                             <option value="['images/bg1_5.png', 'images/bg1_empty2.png']">预设5</option>
                             <option value="['images/bg1_empty2.png', 'images/bg1_empty2.png']">空</option>
-                        </select>
+                        </select>   
                         <select onchange="guijiSelect_onChange()" id="guiji_Select_2" class="guijiSelect">
                             <option value="['images/bg2_empty.png', 'images/bg2_empty.png']">空</option>
                         </select>
                         <select onchange="guijiSelect_onChange()" id="guiji_Select_3" class="guijiSelect">
                             <option value="['images/bg3_empty.png', 'images/bg3_empty.png']">空</option>
                         </select>
+                        <select onchange="guijiSelect_onChange()" id="nonglin" class="guijiSelect">
+                            <option value="['images/bg4_empty.png', 'images/bg4_empty.png']">空</option>
+                        </select>
+
                         <label>&nbsp;&nbsp;&nbsp;绘制轨迹：</label>
                         <button onclick="inpt_drawbtn_onClick()">点击绘制</button>
                     </li>

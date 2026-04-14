@@ -4,7 +4,7 @@ var miles, speeds, username, keep_title, date_year, date_month, date_day, time_h
 
 var km_min, km_max, speed_min, speed_max;
 
-var now_location = '南岗区'
+var now_location = '茂南区'
 var bgSRC = "", ptSRC = "";
 var display_guijiSelect_id;
 var default_bgSRC = [];
@@ -125,3 +125,26 @@ function initInputData() {
     }
 }
 
+// 添加模板选择函数
+function templateSelect_onChange() {
+    const selectElement = document.getElementById("template_select");
+    const selectedValue = selectElement.value;
+    gui_img_src = selectedValue + "?_=" + new Date().getTime();
+    document.getElementById("gui-img").src = gui_img_src;
+}
+
+// 在页面加载完成后初始化模板选择
+window.onload = function () {
+    const guiImgElement = document.getElementById("gui-img");
+    if (guiImgElement) {
+        guiImgElement.src = gui_img_src;
+    }
+
+    // 设置默认选中的模板
+    const templateSelect = document.getElementById("template_select");
+    if (gui_img_src.includes("images/1.png")) {
+        templateSelect.value = "images/1.png";
+    } else {
+        templateSelect.value = "images/2.png";
+    }
+};

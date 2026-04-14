@@ -9,7 +9,7 @@ function loadAMapWeather(apiKey) {
         }
 
         // 使用新的REST API
-        const city = '230100'; // 哈尔滨城市编码
+        const city = '440902'; // 茂南区城市编码
         const url = `https://restapi.amap.com/v3/weather/weatherInfo?city=${city}&key=${apiKey}`;
 
         fetch(url)
